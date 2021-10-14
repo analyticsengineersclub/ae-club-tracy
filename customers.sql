@@ -2,13 +2,20 @@
 -- this output. If you add order by first_order_at limit 5, 
 -- you should get the above output. 
 
+WITH orders AS (
+    SELECT customer_id
+    , MIN(created_at) first_order_at
+    , COUNT(DISTINCT id) number_of_orders
+    FROM analytics-engineers-club.coffee_shop.orders
+    GROUP BY 1
+)
+
 SELECT o.customer_id
 , c.name
 , c.email
-, MIN(o.created_at) first_order_at
-, COUNT(distinct o.id) number_of_orders
-FROM analytics-engineers-club.coffee_shop.orders o 
-LEFT JOIN analytics-engineers-club.coffee_shop.customers c on o.customer_id=c.id
-GROUP BY 1,2,3
-ORDER BY first_order_at
+, o.first_order_at
+, o.number_of_orders
+FROM analytics-engineers-club.coffee_shop.customers c
+LEFT JOIN orders o ON o.customer_id=c.id
+ORDER BY first_order_at asc
 LIMIT 5
