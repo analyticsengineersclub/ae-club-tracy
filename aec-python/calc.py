@@ -24,8 +24,11 @@ def aec_subtract(integers_to_subtract):
     difference = integers_to_subtract[0]
     if len(integers_to_subtract) == 1: 
         print(f"Only one integer was passed; the value is {difference}")
-    for i in range(1, len(integers_to_subtract)):
-        difference -= integers_to_subtract[i]
+    else: 
+        for i in range(1, len(integers_to_subtract)):
+            difference -= integers_to_subtract[i]
+    if difference < 0: 
+        difference = 0
     print(f"The difference of these values is {difference}")
     return difference
 
