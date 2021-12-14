@@ -19,6 +19,11 @@ class TestDivide(unittest.TestCase):
         arg_ints = [50, 2]
         divide_result = aec_divide(arg_ints)
         self.assertEqual(divide_result, 25)
+    
+    def test_zero_denom(self):
+        arg_ints = [50, 0]
+        divide_result = aec_divide(arg_ints)
+        self.assertEqual(divide_result, 0)
 
 
 if __name__ == "__main__":
