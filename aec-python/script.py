@@ -1,24 +1,12 @@
+# following along in lecture
 x = 2
-
 y = "hello"
 
 # list = unordered set of variables
 my_first_list = ['apple', 1, 'banana', 2]
 
+# dictionary
 cal_lookup = {'apple': 95, 'banana': 105, 'orange': 45}
-
-
-# EXERCISES
-
-# - Write a loop that uses `while` instead of the built-in looping structure
-
-# - Write a loop that loop over the keys in a dictionary and prints the values
-
-# - Write the functions `is_odd` and `is_even` that are shown in the lecture
-
-# - Loop over `my_first_list` and square the value if the value is a number, and 
-# print the calories of the fruit if it’s a fruit (hint: use the dictionary to look up the calories)
-
 
 for f in my_first_list: 
     print(f)
@@ -40,15 +28,15 @@ def describe_even(x):
         print("It's odd!")
     else: 
         print("It's neither even nor odd")
-    
 
+# EXERCISES
+# - Write a loop that uses `while` instead of the built-in looping structure
 
+# - Write a loop that loop over the keys in a dictionary and prints the values
 for key, value in cal_lookup.items():
     print(value)
 
-
 # - Write the functions `is_odd` and `is_even` that are shown in the lecture
-
 def is_even(x):
     if x % 2 == 0:
         return True
@@ -62,17 +50,15 @@ def is_odd(x):
     else:
         return False
 
-"""
-Loop over my_first_list and square the value if the value is a number, 
-and print the calories of the fruit if it’s a fruit (hint: use the dictionary to look up the calories)
-"""
+# Loop over `my_first_list` and square the value if the value is a number, and 
+# print the calories of the fruit if it’s a fruit (hint: use the dictionary to look up the calories)
 for x in my_first_list:
     if isinstance(x, str):
         try:
             result = cal_lookup.get(x, None)
         except: 
             result = "Item was not in the dictionary :("
-    else isinstance(x, int):
+    elif isinstance(x, int):
         print(x**2)
     else:
         result = "Item was not a number and was not in the dictionary"
@@ -81,10 +67,12 @@ for x in my_first_list:
 
 def dictionary_sq(dictionary: dict):
     """
-    This function returns the squared value of every value in the dictionary
+    This function returns the squared value of every value in the dictionary.
 
     Arguments:
-    dictionary : dict, required
+        dictionary: dict, required
+    Returns:
+        squared value of every value in the dictionary.
     """
 
     for key, value in dictionary.items():
