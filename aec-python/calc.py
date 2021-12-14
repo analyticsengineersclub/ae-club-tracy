@@ -29,6 +29,18 @@ def aec_subtract(integers_to_subtract):
     print(f"The difference of these values is {difference}")
     return difference
 
+def aec_divide(integers_to_divide):
+    quotient = integers_to_divide[0] 
+    if len(integers_to_divide) == 1: 
+        print(f"Only one integer was passed; the value is {quotient}")
+    elif 0 in integers_to_divide[1:]:
+        print("Whoops! Cannot divide by 0!")
+    else: 
+        for i in range(1, len(integers_to_divide)):
+            quotient /= integers_to_divide[i]
+        print(f"The quotient of these values is {quotient}")
+    return quotient
+
 if __name__ == "__main__":
     args = parser.parse_args()
 
@@ -52,12 +64,4 @@ if __name__ == "__main__":
             print(f"The product of these values is {product}")
 
     if args.command == "divide":
-        quotient = args.integers_to_divide[0] 
-        if len(args.integers_to_divide) == 1: 
-            print(f"Only one integer was passed; the value is {quotient}")
-        elif 0 in args.integers_to_divide[1:]:
-            print("Whoops! Cannot divide by 0!")
-        else: 
-            for i in range(1, len(args.integers_to_divide)):
-                quotient /= args.integers_to_divide[i]
-            print(f"The quotient of these values is {quotient}")
+        aec_divide(args.integers_to_divide)
