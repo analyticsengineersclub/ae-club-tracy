@@ -22,6 +22,17 @@ multiply.add_argument("integers_to_multiply", nargs="*", type=int)
 
 
 def aec_subtract(integers_to_subtract):
+    """
+    Subtracts a list of integers in the order in which they were passed.
+
+    `Args`:
+        integers_to_subtract:
+            the list of integers
+
+    `Returns`:
+        the difference
+    """
+
     for number in integers_to_subtract:
         if not isinstance(number, int):
             raise TypeError("Only integers, please!")
@@ -39,6 +50,16 @@ def aec_subtract(integers_to_subtract):
 
 
 def aec_divide(integers_to_divide):
+    """
+    Divides a list of integers in the order in which they were passed.
+
+    `Args`:
+        integers_to_divide:
+            the list of integers
+
+    `Returns`:
+        the quotient
+    """
     for number in integers_to_divide:
         if not isinstance(number, int):
             raise TypeError("Only integers, please!")
@@ -56,6 +77,16 @@ def aec_divide(integers_to_divide):
 
 
 def aec_add(integers_to_sum):
+    """
+    Adds a list of integers.
+
+    `Args`:
+        integers_to_sum:
+            the list of integers
+
+    `Returns`:
+        the sum
+    """
     summed = sum(integers_to_sum)
     if len(integers_to_sum) == 1:
         print(f"Only one integer was passed; the value is {sum}")
@@ -65,17 +96,27 @@ def aec_add(integers_to_sum):
 
 
 def aec_multiply(integers_to_multiply):
+    """
+    Multiplies a list of integers.
+
+    `Args`:
+        integers_to_multiply:
+            the list of integers
+
+    `Returns`:
+        the product
+    """
     product = integers_to_multiply[0]
     if len(integers_to_multiply) == 1:
         print(f"Only one integer was passed; the value is {product}")
     else:
-        for i in range(1, len(args.integers_to_multiply)):
-            product *= args.integers_to_multiply[i]
+        for i in range(1, len(integers_to_multiply)):
+            product *= integers_to_multiply[i]
         print(f"The product of these values is {product}")
     return product
 
 
-if __name__ == "__main__":
+def main():
 
     args = parser.parse_args()
 
@@ -90,3 +131,7 @@ if __name__ == "__main__":
 
     if args.command == "divide":
         aec_divide(args.integers_to_divide)
+
+
+if __name__ == "__main__":
+    main()
