@@ -1,36 +1,18 @@
-# following along in lecture
-x = 2
-y = "hello"
-
-# list = unordered set of variables
-my_first_list = ['apple', 1, 'banana', 2]
-
-# dictionary
-cal_lookup = {'apple': 95, 'banana': 105, 'orange': 45}
-
-for f in my_first_list: 
-    print(f)
-
-for f in my_first_list: 
-    pass
-print(f)
-
-def sq_int(x):
-    y = x**2
-    return y
-
+# set up 
 y = 5
 x = 4
-def describe_even(x):
-    if is_even(x):
-        print("It's even!")
-    elif is_odd(x):
-        print("It's odd!")
-    else: 
-        print("It's neither even nor odd")
+my_list = ['apple', 1, 'banana', 2]
+cal_lookup = {'apple': 95, 'banana': 105, 'orange': 45}
+
 
 # EXERCISES
 # - Write a loop that uses `while` instead of the built-in looping structure
+average = .45
+current = 100
+
+while current >= average:
+    print(f"Current rate is {current}. That's above average!")
+    current *= .8
 
 # - Write a loop that loop over the keys in a dictionary and prints the values
 for key, value in cal_lookup.items():
@@ -44,26 +26,35 @@ def is_even(x):
         return False
 
 def is_odd(x):
-    # if x % 2 != 0:
     if (isinstance(x, float) and x.is_integer() or isinstance(x, int)) and x % 2 != 0:
         return True
     else:
         return False
 
+def describe_even(x):
+    if is_even(x):
+        print("It's even!")
+    elif is_odd(x):
+        print("It's odd!")
+    else: 
+        print("It's neither even nor odd")
+
 # Loop over `my_first_list` and square the value if the value is a number, and 
-# print the calories of the fruit if it’s a fruit (hint: use the dictionary to look up the calories)
-for x in my_first_list:
-    if isinstance(x, str):
+# print the calories of the fruit if it’s a fruit
+for item in my_list:
+    if isinstance(item, str):
         try:
-            result = cal_lookup.get(x, None)
+            result = cal_lookup.get(item, None)
         except: 
             result = "Item was not in the dictionary :("
-    elif isinstance(x, int):
-        print(x**2)
+    elif isinstance(item, int):
+        print(item**2)
     else:
-        result = "Item was not a number and was not in the dictionary"
+        result = "Item was not a number and was not in the dictionary. Try again"
     print(result)
 
+# Write a function that: Takes a dictionary as an argument, Loops over the keys in the dictionary,
+# Prints the square of the value in the value. Hint: use the `cal_lookup` dictionary for testing.
 
 def dictionary_sq(dictionary: dict):
     """
